@@ -6,7 +6,7 @@ import SelectionSort from "./SelectionSort";
 
 function App() {
     return (
-        <Router>
+        <Router basename="/showcase-sort-react">
             <Container fluid className="App">
                 <Row>
                     <Col>
