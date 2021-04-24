@@ -8,17 +8,22 @@ interface IDrawArray {
     done: boolean
     heading?: string
     end?: boolean
+    debug?: { shouldDebug: boolean, state: any }
 }
 
 function DrawArray(props: IDrawArray) {
     const {array, a, b, done, end = false, heading} = props;
     const out = array.map((v: number, i: number) => {
-        const bgc = i === a || i === b ? "#f00" : "#ddd";
+        const astyle = i === a ? {border: `medium solid #0f0`} : {backgroundColor: '#ddd'};
+        const bstyle = i === b ? {outline: `medium solid #f00`} : {backgroundColor: '#ddd'};
+
+
         return (<span key={i} style={{
             margin: "0.5em",
             padding: "1em",
-            backgroundColor: bgc,
-            display: "inline-block"
+            display: "inline-block",
+            ...astyle,
+            ...bstyle
         }}>{v}</span>);
     });
     return (
@@ -26,12 +31,19 @@ function DrawArray(props: IDrawArray) {
             <Row>
                 <Col><h3>{heading}</h3></Col>
             </Row>
+            <Row>
+                <Col>
+                    <>
+                        {out}
+                    </>
+                </Col>
+            </Row>
+            <Row>
+                <Col>
+                    {props?.debug?.shouldDebug ? JSON.stringify(props.debug.state, null, 4) : null}
+                </Col>
+            </Row>
 
-            <Col>
-                <>
-                    {out}
-                </>
-            </Col>
             <Row>
                 <Col>
                     {done && !end ? <span style={{

@@ -2,6 +2,7 @@ import React from 'react';
 import {Container, Row, Col, Nav, FormControl, Form, Navbar, Button, Jumbotron} from 'react-bootstrap';
 import BubbleSort from "./BubbleSort";
 import {BrowserRouter as Router, Route, Switch, Redirect} from 'react-router-dom';
+import SelectionSort from "./SelectionSort";
 
 function App() {
     return (
@@ -13,7 +14,7 @@ function App() {
                             <Navbar.Brand href="/">Sorting visualisations</Navbar.Brand>
                             <Nav className="mr-auto">
                                 <Nav.Link href="/bubble">Bubble</Nav.Link>
-                                {/*<Nav.Link href="/selection">Selection</Nav.Link>*/}
+                                <Nav.Link href="/selection">Selection</Nav.Link>
                                 {/*<Nav.Link href="/insertion">Insertion</Nav.Link>*/}
                             </Nav>
                         </Navbar>
@@ -30,6 +31,7 @@ function App() {
                             </Jumbotron>
                         </Route>
                         <Route path="/bubble" component={BubbleSort}/>
+                        <Route path="/selection" component={SelectionSort}/>
                         <Redirect to="/"/>
                     </Switch>
 

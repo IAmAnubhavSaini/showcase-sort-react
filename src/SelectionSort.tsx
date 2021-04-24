@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import DrawArray from "./DrawArray";
 import ControlBox from "./ControlBox";
 
-interface IBubbleSortState {
+interface ISelectionSortState {
     original: number[]
     array: number[]
     i: number
@@ -17,7 +17,7 @@ interface IBubbleSortState {
     size: number
 }
 
-function bubbleSortInit(size: number = 10): IBubbleSortState {
+function selectionSortInit(size: number = 10): ISelectionSortState {
     const original = Array(size).fill(0).map(_ => Math.floor(Math.random() * 100));
     return {
         original,
@@ -37,27 +37,30 @@ function isSorted(array: number[]) {
     return array.reduce((a: boolean, c: number, i: number) => a && c < (array[i + 1] || Infinity), true);
 }
 
-function bubbleSortStep(state: IBubbleSortState): IBubbleSortState {
+function selectionSortStep(state: ISelectionSortState): ISelectionSortState {
     let {array, i, j, compareI, compareJ, comparisons, swaps, original, size} = state;
 
     if (compareJ > size - 1) {
-        compareI = 0;
-        compareJ = 1;
-        i++;
-    }
-
-    const a = array[compareI];
-    const b = array[compareJ];
-    if (a > b) {
+        //swap first
+        const a = array[i];
+        array[i] = array[compareI];
+        array[compareI] = a;
         swaps++;
-        array[compareI] = b;
-        array[compareJ] = a;
-    }
-    comparisons++;
-    compareI++;
-    compareJ++;
 
-    // bails out quicker. Not a real bubble sort. Watching bubble sort is punishment.
+        // prepare for next iteration of the outer loop
+        i++;
+        compareI = i;
+        compareJ = i + 1;
+    }
+
+    if (array[compareI] > array[compareJ]) {
+        compareI = compareJ;
+    }
+
+    compareJ++;
+    comparisons++;
+
+    // bails out quicker. Not a real selection sort. Watching selection sort is punishment.
     let done = isSorted(array) || i > size;
     if (done) {
         compareI = -1;
@@ -66,9 +69,9 @@ function bubbleSortStep(state: IBubbleSortState): IBubbleSortState {
     return {...state, array, i, j, compareI, compareJ, comparisons, swaps, done, original};
 }
 
-function BubbleSort() {
+function SelectionSort() {
     const [inputSize, setInputSize] = useState(5);
-    const [state, setState] = useState(bubbleSortInit(inputSize));
+    const [state, setState] = useState(selectionSortInit(inputSize));
     const [visualisationSpeed, setVisualisationSpeed] = useState(500);
     const [debug, setDebug] = useState(false);
 
@@ -77,39 +80,42 @@ function BubbleSort() {
             if (state.done) {
                 clearTimeout(id);
             } else {
-                setState(bubbleSortStep(state));
+                setState(selectionSortStep(state));
             }
 
-        }, 500);
+        }, visualisationSpeed);
         return () => clearTimeout(id);
     });
 
     function updateRange(value: number) {
         setInputSize(value);
-        setState(bubbleSortInit(value));
+        setState(selectionSortInit(value));
     }
 
     function updateVisualisationSpeed(value: number) {
         setVisualisationSpeed(value);
-        setState(bubbleSortInit(inputSize));
+        setState(selectionSortInit(inputSize));
     }
-
 
     return (
 
         <>
             <Jumbotron>
-                <h1>Bubble sort</h1>
-                <p>Use the range slider to increase/decrease the number of numbers in bubble sort visualisation.</p>
+                <h1>Selection sort</h1>
+                <p>Use the range slider to increase/decrease the number of numbers in selection sort visualisation.</p>
 
                 <p>
-                    <a href="https://en.wikipedia.org/wiki/Bubble_sort">Learn more about bubble sort</a>
+                    <a href="https://en.wikipedia.org/wiki/Selection_sort">Learn more about selection sort</a>
                 </p>
             </Jumbotron>
 
             <ControlBox inputSize={inputSize} updateRange={updateRange} debug={debug} setDebug={setDebug}
                         visualisationSpeed={visualisationSpeed} updateVisualisationSpeed={updateVisualisationSpeed}/>
-
+            <Row>
+                <Col>
+                    <hr/>
+                </Col>
+            </Row>
             <Row>
                 <Col>
                     <DrawArray
@@ -124,8 +130,8 @@ function BubbleSort() {
 
             <Row>
                 <Col>
-                    <DrawArray array={state.array} a={state.compareI - 1} b={state.compareJ - 1} done={state.done}
-                               heading={"Working"}/>
+                    <DrawArray array={state.array} a={state.compareI} b={state.compareJ - 1} done={state.done}
+                               heading={"Working"} debug={({shouldDebug: debug, state})}/>
                 </Col>
             </Row>
         </>
@@ -133,6 +139,6 @@ function BubbleSort() {
     );
 }
 
-export default BubbleSort;
+export default SelectionSort;
 
 
