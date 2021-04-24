@@ -1,6 +1,7 @@
 import React, {ChangeEvent, useEffect, useState} from 'react';
 import {Container, Row, Col, Form, Jumbotron, Button} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import DrawArray from "./DrawArray";
 
 interface IBubbleSortState {
     original: number[]
@@ -96,7 +97,7 @@ function BubbleSort() {
                     <a href="https://en.wikipedia.org/wiki/Bubble_sort">Learn more about bubble sort</a>
                 </p>
             </Jumbotron>
-            
+
             <Row>
                 <Col className="col-md-3">
                     <Form>
@@ -110,7 +111,7 @@ function BubbleSort() {
             </Row>
             <Row>
                 <Col>
-                    <ShowArray
+                    <DrawArray
                         array={state.original}
                         a={-1} b={-1}
                         done={state.done}
@@ -122,7 +123,7 @@ function BubbleSort() {
 
             <Row>
                 <Col>
-                    <ShowArray array={state.array} a={state.compareI - 1} b={state.compareJ - 1} done={state.done}
+                    <DrawArray array={state.array} a={state.compareI - 1} b={state.compareJ - 1} done={state.done}
                                heading={"Working"}/>
                 </Col>
             </Row>
@@ -133,49 +134,4 @@ function BubbleSort() {
 
 export default BubbleSort;
 
-
-interface IShowArray {
-    array: number[]
-    a: number
-    b: number
-    done: boolean
-    heading?: string
-    end?: boolean
-}
-
-function ShowArray(props: IShowArray) {
-    const {array, a, b, done, end = false, heading} = props;
-    const out = array.map((v: number, i: number) => {
-        const bgc = i === a || i === b ? "#f00" : "#ddd";
-        return (<span key={i} style={{
-            margin: "0.5em",
-            padding: "1em",
-            backgroundColor: bgc,
-            display: "inline-block"
-        }}>{v}</span>);
-    });
-    return (
-        <Container fluid>
-            <Row>
-                <Col><h3>{heading}</h3></Col>
-            </Row>
-
-            <Col>
-                <>
-                    {out}
-                </>
-            </Col>
-            <Row>
-                <Col>
-                    {done && !end ? <span style={{
-                        margin: "0.5em",
-                        padding: "1em",
-                        backgroundColor: "green",
-                        display: "inline-block"
-                    }}>Done!</span> : ''}
-                </Col>
-            </Row>
-        </Container>
-    );
-}
 
