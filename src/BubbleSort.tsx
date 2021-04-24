@@ -1,5 +1,5 @@
 import React, {ChangeEvent, useEffect, useState} from 'react';
-import {Container, Row, Col, Form} from 'react-bootstrap';
+import {Container, Row, Col, Form, Jumbotron, Button} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 interface IBubbleSortState {
@@ -87,7 +87,16 @@ function BubbleSort() {
 
     return (
 
-        <Container fluid>
+        <>
+            <Jumbotron>
+                <h1>Bubble sort</h1>
+                <p>Use the range slider to increase/decrease the number of numbers in bubble sort visualisation.</p>
+
+                <p>
+                    <a href="https://en.wikipedia.org/wiki/Bubble_sort">Learn more about bubble sort</a>
+                </p>
+            </Jumbotron>
+            
             <Row>
                 <Col className="col-md-3">
                     <Form>
@@ -117,7 +126,7 @@ function BubbleSort() {
                                heading={"Working"}/>
                 </Col>
             </Row>
-        </Container>
+        </>
 
     );
 }
