@@ -4,7 +4,12 @@ import BubbleSort from "./BubbleSort";
 import SelectionSort from "./SelectionSort";
 
 function App() {
-    const [component, setComponent] = useState(<Greet/>);
+    const [component, setComponent] = useState('Greet');
+
+    const ToRender = component === 'Greet' ? Greet :
+        component === 'BubbleSort' ? BubbleSort :
+            component === 'SelectionSort' ? SelectionSort : Greet;
+
 
     return (
 
@@ -14,8 +19,8 @@ function App() {
                     <Navbar bg="danger" variant="dark">
                         <Navbar.Brand href="/">Sorting visualisations</Navbar.Brand>
                         <Nav className="mr-auto">
-                            <Nav.Link onClick={() => setComponent(<BubbleSort/>)}>Bubble</Nav.Link>
-                            <Nav.Link onClick={() => setComponent(<SelectionSort/>)}>Selection</Nav.Link>
+                            <Nav.Link onClick={() => setComponent('BubbleSort')}>Bubble</Nav.Link>
+                            <Nav.Link onClick={() => setComponent('SelectionSort')}>Selection</Nav.Link>
                             {/*<Nav.Link href="/insertion">Insertion</Nav.Link>*/}
                         </Nav>
                     </Navbar>
@@ -23,7 +28,7 @@ function App() {
             </Row>
 
             <Row><Col>
-                {component}
+                <ToRender/>
             </Col></Row>
         </Container>
     );
