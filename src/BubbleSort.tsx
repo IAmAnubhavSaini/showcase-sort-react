@@ -80,7 +80,7 @@ function BubbleSort() {
                 setState(bubbleSortStep(state));
             }
 
-        }, 500);
+        }, visualisationSpeed);
         return () => clearTimeout(id);
     });
 
@@ -125,7 +125,7 @@ function BubbleSort() {
             <Row>
                 <Col>
                     <DrawArray array={state.array} a={state.compareI - 1} b={state.compareJ - 1} done={state.done}
-                               heading={"Working"}/>
+                               heading={"Working"} debug={({shouldDebug: debug, state})}/>
                 </Col>
             </Row>
         </>

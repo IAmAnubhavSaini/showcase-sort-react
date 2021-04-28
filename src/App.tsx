@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Container, Row, Col, Nav, FormControl, Form, Navbar, Button, Jumbotron} from 'react-bootstrap';
+import {Container, Row, Col, Nav, FormControl, Form, Navbar, Button, Jumbotron, Badge} from 'react-bootstrap';
 import BubbleSort from "./BubbleSort";
 import SelectionSort from "./SelectionSort";
 
@@ -23,6 +23,7 @@ function App() {
                             <Nav.Link onClick={() => setComponent('SelectionSort')}>Selection</Nav.Link>
                             {/*<Nav.Link href="/insertion">Insertion</Nav.Link>*/}
                         </Nav>
+                        <Badge variant={"light"}>v0.7.0</Badge>
                     </Navbar>
                 </Col>
             </Row>
