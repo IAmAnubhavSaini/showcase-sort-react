@@ -1,25 +1,25 @@
 {
   "files": {
     "main.css": "/showcase-sort-react/static/css/main.6dea0f05.chunk.css",
-    "main.js": "/showcase-sort-react/static/js/main.c82c4dfd.chunk.js",
-    "main.js.map": "/showcase-sort-react/static/js/main.c82c4dfd.chunk.js.map",
-    "runtime-main.js": "/showcase-sort-react/static/js/runtime-main.58889fc9.js",
-    "runtime-main.js.map": "/showcase-sort-react/static/js/runtime-main.58889fc9.js.map",
+    "main.js": "/showcase-sort-react/static/js/main.f40ba7b1.chunk.js",
+    "main.js.map": "/showcase-sort-react/static/js/main.f40ba7b1.chunk.js.map",
+    "runtime-main.js": "/showcase-sort-react/static/js/runtime-main.636778ba.js",
+    "runtime-main.js.map": "/showcase-sort-react/static/js/runtime-main.636778ba.js.map",
     "static/css/2.150d169a.chunk.css": "/showcase-sort-react/static/css/2.150d169a.chunk.css",
-    "static/js/2.d98cce45.chunk.js": "/showcase-sort-react/static/js/2.d98cce45.chunk.js",
-    "static/js/2.d98cce45.chunk.js.map": "/showcase-sort-react/static/js/2.d98cce45.chunk.js.map",
-    "static/js/3.92e4c485.chunk.js": "/showcase-sort-react/static/js/3.92e4c485.chunk.js",
-    "static/js/3.92e4c485.chunk.js.map": "/showcase-sort-react/static/js/3.92e4c485.chunk.js.map",
+    "static/js/2.912e428c.chunk.js": "/showcase-sort-react/static/js/2.912e428c.chunk.js",
+    "static/js/2.912e428c.chunk.js.map": "/showcase-sort-react/static/js/2.912e428c.chunk.js.map",
+    "static/js/3.bee6f121.chunk.js": "/showcase-sort-react/static/js/3.bee6f121.chunk.js",
+    "static/js/3.bee6f121.chunk.js.map": "/showcase-sort-react/static/js/3.bee6f121.chunk.js.map",
     "index.html": "/showcase-sort-react/index.html",
     "static/css/2.150d169a.chunk.css.map": "/showcase-sort-react/static/css/2.150d169a.chunk.css.map",
     "static/css/main.6dea0f05.chunk.css.map": "/showcase-sort-react/static/css/main.6dea0f05.chunk.css.map",
-    "static/js/2.d98cce45.chunk.js.LICENSE.txt": "/showcase-sort-react/static/js/2.d98cce45.chunk.js.LICENSE.txt"
+    "static/js/2.912e428c.chunk.js.LICENSE.txt": "/showcase-sort-react/static/js/2.912e428c.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.58889fc9.js",
+    "static/js/runtime-main.636778ba.js",
     "static/css/2.150d169a.chunk.css",
-    "static/js/2.d98cce45.chunk.js",
+    "static/js/2.912e428c.chunk.js",
     "static/css/main.6dea0f05.chunk.css",
-    "static/js/main.c82c4dfd.chunk.js"
+    "static/js/main.f40ba7b1.chunk.js"
   ]
 }
