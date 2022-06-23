@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Container, Row, Col, Nav, FormControl, Form, Navbar, Button, Jumbotron, Badge} from 'react-bootstrap';
+import {Badge, Col, Container, Jumbotron, Nav, Navbar, Row} from 'react-bootstrap';
 import BubbleSort from "./BubbleSort";
 import SelectionSort from "./SelectionSort";
 

@@ -1,20 +1,20 @@
-import React, {ChangeEvent, useEffect, useState} from 'react';
-import {Container, Row, Col, Form, Jumbotron, Button} from 'react-bootstrap';
+import React, {useEffect, useState} from 'react';
+import {Col, Jumbotron, Row} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import DrawArray from "./DrawArray";
 import ControlBox from "./ControlBox";
 
 interface ISelectionSortState {
-    original: number[]
-    array: number[]
-    i: number
-    j: number
-    compareI: number
-    compareJ: number
-    comparisons: number
-    swaps: number
-    done: boolean
-    size: number
+    original: number[];
+    array: number[];
+    i: number;
+    j: number;
+    compareI: number;
+    compareJ: number;
+    comparisons: number;
+    swaps: number;
+    done: boolean;
+    size: number;
 }
 
 function selectionSortInit(size: number = 10): ISelectionSortState {

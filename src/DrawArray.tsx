@@ -2,13 +2,13 @@ import {Col, Container, Row} from "react-bootstrap";
 import React from "react";
 
 interface IDrawArray {
-    array: number[]
-    a: number
-    b: number
-    done: boolean
-    heading?: string
-    end?: boolean
-    debug?: { shouldDebug: boolean, state: any }
+    array: number[];
+    a: number;
+    b: number;
+    done: boolean;
+    heading?: string;
+    end?: boolean;
+    debug?: { shouldDebug: boolean, state: any };
 }
 
 function DrawArray(props: IDrawArray) {
