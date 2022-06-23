@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {Col, Jumbotron, Row} from 'react-bootstrap';
+import {Col, Row} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import DrawArray from "./DrawArray";
 import ControlBox from "./ControlBox";
@@ -100,14 +100,14 @@ function SelectionSort() {
     return (
 
         <>
-            <Jumbotron>
+            <div>
                 <h1>Selection sort</h1>
                 <p>Use the range slider to increase/decrease the number of numbers in selection sort visualisation.</p>
 
                 <p>
                     <a href="https://en.wikipedia.org/wiki/Selection_sort">Learn more about selection sort</a>
                 </p>
-            </Jumbotron>
+            </div>
 
             <ControlBox inputSize={inputSize} updateRange={updateRange} debug={debug} setDebug={setDebug}
                         visualisationSpeed={visualisationSpeed} updateVisualisationSpeed={updateVisualisationSpeed}/>

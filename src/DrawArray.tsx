@@ -20,8 +20,9 @@ function DrawArray(props: IDrawArray) {
 
         return (<span key={i} style={{
             margin: "0.5em",
-            padding: "1em",
+            padding: "0.5em",
             display: "inline-block",
+            borderRadius: "50%",
             ...astyle,
             ...bstyle
         }}>{v}</span>);

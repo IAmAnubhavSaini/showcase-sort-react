@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Badge, Col, Container, Jumbotron, Nav, Navbar, Row} from 'react-bootstrap';
+import {Badge, Col, Container, Nav, Navbar, Row} from 'react-bootstrap';
 import BubbleSort from "./BubbleSort";
 import SelectionSort from "./SelectionSort";
 
@@ -23,7 +23,7 @@ function App() {
                             <Nav.Link onClick={() => setComponent('SelectionSort')}>Selection</Nav.Link>
                             {/*<Nav.Link href="/insertion">Insertion</Nav.Link>*/}
                         </Nav>
-                        <Badge variant={"light"}>v0.7.0</Badge>
+                        <Badge>v0.8.0</Badge>
                     </Navbar>
                 </Col>
             </Row>
@@ -38,8 +38,8 @@ function App() {
 export default App;
 
 function Greet() {
-    return (<Jumbotron>
+    return (<div>
         <h1>Hello to sorting visualisations</h1>
         <p>Click on the links to go see the visualisation.</p>
-    </Jumbotron>);
+    </div>);
 }
