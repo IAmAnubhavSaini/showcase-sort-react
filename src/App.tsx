@@ -16,9 +16,9 @@ function App() {
         <Container fluid className="App">
             <Row>
                 <Col>
-                    <Navbar bg="danger" variant="dark">
+                    <Navbar bg="info" variant="light">
                         <Navbar.Brand href="/">Sorting visualisations</Navbar.Brand>
-                        <Nav className="mr-auto">
+                        <Nav className="mr-auto links">
                             <Nav.Link onClick={() => setComponent('BubbleSort')}>Bubble</Nav.Link>
                             <Nav.Link onClick={() => setComponent('SelectionSort')}>Selection</Nav.Link>
                             {/*<Nav.Link href="/insertion">Insertion</Nav.Link>*/}
